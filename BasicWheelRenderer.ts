@@ -126,7 +126,7 @@ export class BasicWheelRenderer implements WheelRenderer {
                 PrepareClipArea();
                 ctx.clip();
 
-                console.log("Rect: ", rect);
+                //console.log("Rect: ", rect);
 
                 ctx.fillStyle = section.color || 'grey';
                 ctx.fill();
@@ -237,7 +237,7 @@ export class BasicWheelRenderer implements WheelRenderer {
             cachedSection.isHovered != currentSection.isHovered ||
             cachedSection.isMarked != currentSection.isMarked
         ) {
-            console.log("A section has changed: ", cachedSection?.id);
+            //console.log("A section has changed: ", cachedSection?.id);
             return true;
         }
         return false;

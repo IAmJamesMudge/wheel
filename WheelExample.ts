@@ -41,6 +41,9 @@ container.onclick = () => {
     } else {
         controller.stopSpinning({
             degreesToStopAt: 90,
+            onSpinFinished(sections) {
+                console.log("Finished on sections: ", sections);
+            },
         });
         counter = 0;
     }
