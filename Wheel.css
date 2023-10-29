@@ -1,0 +1,34 @@
+.wheel-arrow {
+    position: absolute;
+    top: 8px;
+    width: 10px;
+    height: 40px;
+    background-color: #000;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    border-radius: 6px;
+  }
+  
+  .wheel-arrow::after, .wheel-arrow::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    background-color: #000;
+  }
+  
+  .wheel-arrow::after {
+    top: 20px;
+    right: -8px;
+    height: 20px;
+    transform: rotate(50deg);
+    border-radius: 10px;
+  }
+  
+  .wheel-arrow::before {
+    top: 20px;
+    right: 8px;
+    height: 20px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    transform: rotate(-50deg);
+    border-radius: 10px;
+}

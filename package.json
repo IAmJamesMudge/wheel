@@ -1,0 +1,11 @@
+{
+  "name": "wheel",
+  "version": "1.0.0",
+  "description": "Vanilla typescript implementation of a spinning wheel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James Mudge",
+  "license": "MIT"
+}
