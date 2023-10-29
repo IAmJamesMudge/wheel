@@ -7,5 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "James Mudge",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/iamjamesmudge/wheel",
+  "types": "Wheel.d.ts"
 }
