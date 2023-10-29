@@ -7,7 +7,7 @@ export interface WheelController {
     stopSpinning(options: StopSpinningOptions): void;
     spinIndefinitely(options: SpinIndefinitelyOptions): void;
     handleSectionEvent(callback: (e: WheelSectionEvent) => void): void;
-    jumpTo(degreePosition:number);
+    jumpTo(degreePosition:number):void;
 }
 
 export interface StopSpinningOptions {

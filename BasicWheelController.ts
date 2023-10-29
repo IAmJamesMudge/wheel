@@ -1,3 +1,5 @@
+import { WheelController, Wheel, StopSpinningOptions, SpinIndefinitelyOptions, WheelSectionEvent } from "./WheelTypes";
+
 export class BasicWheelController implements WheelController {
     private animationId?: number;
     private currentSpeed: number = 0;

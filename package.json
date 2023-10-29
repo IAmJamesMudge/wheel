@@ -1,6 +1,6 @@
 {
   "name": "wheel",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vanilla typescript implementation of a spinning wheel",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,5 @@
   },
   "author": "James Mudge",
   "license": "MIT",
-  "homepage": "https://github.com/iamjamesmudge/wheel",
-  "types": "Wheel.d.ts"
+  "homepage": "https://github.com/iamjamesmudge/wheel"
 }

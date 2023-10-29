@@ -1,5 +1,6 @@
 import { BasicWheelController } from "./BasicWheelController.js";
 import { BasicWheelRenderer } from "./BasicWheelRenderer.js";
+import { Wheel } from "./WheelTypes.js";
 
 
 const wheel: Wheel = {

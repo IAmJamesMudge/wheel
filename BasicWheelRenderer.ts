@@ -1,3 +1,4 @@
+import { WheelRenderer, Wheel, Section } from "./WheelTypes.js";
 import { degToRad, getBoundingRectangle, getPositionFromDegrees } from "./WheelUtility.js";
 
 export type RendererOptions = {
