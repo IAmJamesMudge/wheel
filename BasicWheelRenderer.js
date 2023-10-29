@@ -170,6 +170,7 @@ export class BasicWheelRenderer {
     #SectionHasChanged(cachedSection, currentSection) {
         if (cachedSection === null || currentSection === null ||
             cachedSection.id != currentSection.id ||
+            cachedSection.label != currentSection.label ||
             cachedSection.color != currentSection.color ||
             cachedSection.font != currentSection.font ||
             cachedSection.endDegree != currentSection.endDegree ||
