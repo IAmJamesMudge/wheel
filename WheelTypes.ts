@@ -12,6 +12,8 @@ export interface WheelController {
 
 export interface StopSpinningOptions {
     degreesToStopAt: number;
+
+    onSpinFinished?: (sections:Section[]) => void;
 }
 
 export interface SpinIndefinitelyOptions {

@@ -32,6 +32,7 @@ export class BasicWheelController {
             if (distanceToTarget <= 0.1) {
                 this.wheel.currentRotation = targetRotation;
                 this.#updateMarkedState();
+                options.onSpinFinished?.(this.wheel.sections.filter(s => s.isMarked));
                 return;
             }
             this.animationId = requestAnimationFrame(animate);
