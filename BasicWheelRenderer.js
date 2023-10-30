@@ -37,6 +37,7 @@ export class BasicWheelRenderer {
         this.radius = (width / 2) - 1;
         // create the wheel group to contain the canvas and markers
         this.wheelGroup = document.createElement("div");
+        this.wheelGroup.className = "wheel-group";
         this.wheelGroup.style.display = "inline-block";
         this.wheelGroup.style.width = `${width}px`;
         this.wheelGroup.style.height = `${height}px`;
