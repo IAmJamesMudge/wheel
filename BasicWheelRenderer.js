@@ -173,6 +173,7 @@ export class BasicWheelRenderer {
             cachedSection.label != currentSection.label ||
             cachedSection.color != currentSection.color ||
             cachedSection.font != currentSection.font ||
+            cachedSection.startDegree != currentSection.startDegree ||
             cachedSection.endDegree != currentSection.endDegree ||
             cachedSection.imageURL != currentSection.imageURL ||
             cachedSection.isActive != currentSection.isActive ||

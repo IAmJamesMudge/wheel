@@ -232,6 +232,7 @@ export class BasicWheelRenderer implements WheelRenderer {
             cachedSection.label != currentSection.label ||
             cachedSection.color != currentSection.color ||
             cachedSection.font != currentSection.font ||
+            cachedSection.startDegree != currentSection.startDegree ||
             cachedSection.endDegree != currentSection.endDegree ||
             cachedSection.imageURL != currentSection.imageURL ||
             cachedSection.isActive != currentSection.isActive ||

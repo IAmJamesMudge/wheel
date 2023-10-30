@@ -1,6 +1,6 @@
 {
   "name": "wheel",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Vanilla typescript implementation of a spinning wheel",
   "main": "index.js",
   "scripts": {
