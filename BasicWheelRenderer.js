@@ -13,7 +13,7 @@ export class BasicWheelRenderer {
         this.options = options;
     }
     RedrawWheel() {
-        console.log("Redrawing the whole wheel");
+        //console.log("Redrawing the whole wheel");
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         let sortedSections = [...this.wheel.sections];
         sortedSections.sort((a, b) => {
@@ -90,7 +90,7 @@ export class BasicWheelRenderer {
             const drawTheImage = () => {
                 const img = section.cachedImage;
                 const rect = getBoundingRectangle(0, 0, 0, arcLength, this.radius, img.width / img.height);
-                console.log("Got rect for ", section.id, rect);
+                //console.log("Got rect for ", section.id, rect);
                 // const testDiv = document.createElement("div");
                 // testDiv.setAttribute("style", `border: 2px solid black; background: rgba(0,0,0,0.5); width: ${rect.width}px; height: ${rect.height}px; position: absolute; left: ${rect.left + centerX}px; top: ${rect.top + centerY}px`);
                 // this.wheelGroup?.appendChild(testDiv);
