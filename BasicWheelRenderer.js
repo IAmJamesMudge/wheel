@@ -106,6 +106,9 @@ export class BasicWheelRenderer {
                 ctx.stroke();
                 ctx.restore();
             };
+            if (section.cachedImage && section.cachedImage.src !== section.imageURL) {
+                section.cachedImage = null;
+            }
             if (!section.cachedImage) {
                 section.cachedImage = new Image();
                 section.cachedImage.src = section.imageURL;
