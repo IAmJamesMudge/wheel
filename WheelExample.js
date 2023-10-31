@@ -4,12 +4,24 @@ import { getRandomWheelPosition } from "./WheelUtility.js";
 const wheel = {
     currentRotation: 0,
     sections: [
-        { id: '1', startDegree: 5, endDegree: 55, label: 'Prize 1', color: 'red', imageURL: "https://www.oxpal.com/downloads/uv-checker/checker-map_tho_blog.png", isMarked: false, isHovered: false, isActive: false },
-        { id: '2', startDegree: 65, endDegree: 115, label: 'Prize 2', color: 'blue', isMarked: false, isHovered: false, isActive: false },
-        { id: '3', startDegree: 125, endDegree: 175, label: 'Prize 3', color: 'yellow', isMarked: false, isHovered: false, isActive: false },
-        { id: '4', startDegree: 185, endDegree: 235, label: 'Prize 4', color: 'green', isMarked: false, isHovered: false, isActive: false },
-        { id: '5', startDegree: 245, endDegree: 345, label: 'Prize 5', color: 'purple', isMarked: false, isHovered: false, isActive: false },
-        { id: '6', startDegree: 350, endDegree: 360, label: 'Prize 6', color: 'orange', isMarked: false, isHovered: false, isActive: false },
+        { id: '1', startDegree: 0, endDegree: 60, label: 'Prize 1', color: 'red',
+            imageURL: "https://picsum.photos/seed/test24/200",
+            isMarked: false, isHovered: false, isActive: false },
+        { id: '2', startDegree: 60, endDegree: 120, label: 'Prize 2', color: 'blue',
+            imageURL: "https://picsum.photos/seed/test24/200",
+            isMarked: false, isHovered: false, isActive: false },
+        { id: '3', startDegree: 120, endDegree: 180, label: 'Prize 3', color: 'yellow',
+            //imageURL: "https://picsum.photos/seed/test24/200", 
+            isMarked: false, isHovered: false, isActive: false },
+        { id: '4', startDegree: 180, endDegree: 240, label: 'Prize 4', color: 'green',
+            //imageURL: "https://picsum.photos/seed/test24/200", 
+            isMarked: false, isHovered: false, isActive: false },
+        { id: '5', startDegree: 240, endDegree: 300, label: 'Prize 5', color: 'purple',
+            //imageURL: "https://picsum.photos/seed/test24/200", 
+            isMarked: false, isHovered: false, isActive: false },
+        { id: '6', startDegree: 300, endDegree: 360, label: 'Prize 6', color: 'orange',
+            //imageURL: "https://picsum.photos/seed/test24/200", 
+            isMarked: false, isHovered: false, isActive: false },
     ],
     markers: [
         { id: 'marker1', positionInDegrees: -30, color: 'red' }
@@ -74,3 +86,6 @@ else {
     };
 }
 document.body.appendChild(button);
+const img = new Image(200, 200);
+img.src = "https://picsum.photos/seed/test24/200";
+document.body.append(img);

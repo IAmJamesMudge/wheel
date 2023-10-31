@@ -117,7 +117,9 @@ export class BasicWheelRenderer implements WheelRenderer {
 
             const drawTheImage = () => {
                 const img = section.cachedImage!;
-                const rect = getBoundingRectangle(0,0, 0, section.endDegree, this.radius, img.width / img.height);
+                const rect = getBoundingRectangle(0,0, 0, arcLength, this.radius, img.width / img.height);
+
+                console.log("Got rect for ", section.id, rect);
 
                 // const testDiv = document.createElement("div");
                 // testDiv.setAttribute("style", `border: 2px solid black; background: rgba(0,0,0,0.5); width: ${rect.width}px; height: ${rect.height}px; position: absolute; left: ${rect.left + centerX}px; top: ${rect.top + centerY}px`);
