@@ -8,14 +8,16 @@ export class BasicWheelController {
     }
     stopSpinning(options) {
         window.cancelAnimationFrame(this.animationId || 0);
-        const targetRotation = options.degreesToStopAt;
-        let distanceToTarget = targetRotation - (this.wheel.currentRotation % 360);
+        const targetRotation = -options.degreesToStopAt % 360;
+        let distanceToTarget = (targetRotation - (this.wheel.currentRotation % 360)) % 360;
+        console.log("Distance: " + distanceToTarget);
         if (distanceToTarget < 0) {
             distanceToTarget += 360;
         }
         if (distanceToTarget < 180) {
             distanceToTarget += 360;
         }
+        console.log("Distance Modified: " + distanceToTarget);
         const initialDistance = distanceToTarget;
         const initialSpeed = this.currentSpeed;
         const lerp = (a, b, t) => a + t * (b - a);
@@ -33,7 +35,10 @@ export class BasicWheelController {
                 this.wheel.currentRotation = targetRotation;
                 this.#updateMarkedState();
                 //console.log("Hello: ", options);
-                options.onSpinFinished?.(this.wheel.sections.filter(s => s.isMarked));
+                // do a brief timeout so the marked state updates properly
+                setTimeout(() => {
+                    options.onSpinFinished?.(this.wheel.sections.filter(s => s.isMarked));
+                }, 100);
                 return;
             }
             this.animationId = requestAnimationFrame(animate);
@@ -55,7 +60,7 @@ export class BasicWheelController {
         this.animationId = requestAnimationFrame(animate);
     }
     jumpTo(degreePosition) {
-        this.wheel.currentRotation = degreePosition;
+        this.wheel.currentRotation = -degreePosition;
         this.#updateMarkedState();
     }
     #updateMarkedState() {

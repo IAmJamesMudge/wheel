@@ -1,6 +1,6 @@
 {
   "name": "wheel",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Vanilla typescript implementation of a spinning wheel",
   "main": "index.js",
   "scripts": {
@@ -8,5 +8,12 @@
   },
   "author": "James Mudge",
   "license": "MIT",
-  "homepage": "https://github.com/iamjamesmudge/wheel"
+  "homepage": "https://github.com/iamjamesmudge/wheel",
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "dependencies": {
+    "rollup-plugin-terser": "^7.0.2"
+  }
 }

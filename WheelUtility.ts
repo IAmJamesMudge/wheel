@@ -1,3 +1,9 @@
+import type { Section } from "./WheelTypes";
+
+export function degToRad(deg: number): number {
+    return deg * Math.PI / 180;
+}
+
 export function getPositionFromDegrees(centerX: number, centerY: number, radius: number, degrees: number): { x: number, y: number } {
     const rad = degToRad(degrees);
 
@@ -5,12 +11,6 @@ export function getPositionFromDegrees(centerX: number, centerY: number, radius:
     const y = centerY + radius * Math.sin(rad);
 
     return { x, y };
-}
-
-
-
-export function degToRad(deg: number): number {
-    return deg * Math.PI / 180;
 }
 
 export function getBoundingRectangle(centerX:number, centerY:number, startAngle:number, endAngle:number, radius:number, aspectRatio:number) {
@@ -68,3 +68,57 @@ export function getBoundingRectangle(centerX:number, centerY:number, startAngle:
         height: height
     };
 }
+
+// returns a random entry from options
+// the likelihood of getting a certain entry corresponds to the
+// weight in the same index of the weights array
+export function getWeightedRandom<T>(options: T[], weights: number[]): T {
+    if (options.length !== weights.length) {
+      throw new Error('options and weights must be of the same length');
+    }
+  
+    const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
+    if (totalWeight <= 0) {
+      throw new Error('total weight must be greater than 0');
+    }
+  
+    let random = Math.random() * totalWeight;
+    for (let i = 0; i < options.length; i++) {
+      random -= weights[i];
+      if (random < 0) {
+        return options[i];
+      }
+    }
+  
+    // This should never be reached if weights are correctly provided
+    throw new Error('failed to get a weighted random value');
+  }
+  export function getRandomWheelPosition(sections: Section[], weights?: number[]): number {
+    if (weights === undefined) {
+      // Calculate the arc lengths assuming a unit circle and normalize degrees to [0, 360)
+      weights = sections.map(s => {
+        let normalizedStart = s.startDegree % 360;
+        let normalizedEnd = s.endDegree % 360;
+        if (normalizedStart < 0) normalizedStart += 360;
+        if (normalizedEnd < 0) normalizedEnd += 360;
+        if (normalizedEnd < normalizedStart) normalizedEnd += 360;
+        const arcLength = (normalizedEnd - normalizedStart) * (Math.PI / 180);
+        return arcLength;
+      });
+    }
+  
+    const chosenSection = getWeightedRandom(sections, weights);
+  
+    // Normalize degrees to [0, 360)
+    let startDegree = chosenSection.startDegree % 360;
+    let endDegree = chosenSection.endDegree % 360;
+    if (startDegree < 0) startDegree += 360;
+    if (endDegree < 0) endDegree += 360;
+    if (endDegree < startDegree) endDegree += 360;
+  
+    // Get random number between the start and end degrees
+    const randomDegree = startDegree + (Math.random() * (endDegree - startDegree));
+  
+    // Normalize the result back to [0, 360)
+    return randomDegree % 360;
+  }
