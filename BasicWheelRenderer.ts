@@ -96,7 +96,7 @@ export class BasicWheelRenderer implements WheelRenderer {
         const centerX = this.centerX;
         const centerY = this.centerY;
         const radius = this.radius;
-        const arcLength = section.endDegree % 360 - section.startDegree % 360;
+        const arcLength = section.endDegree % 360.01 - section.startDegree % 360.01;
 
         const PrepareClipArea = () => {
             ctx.translate(centerX,centerY);
