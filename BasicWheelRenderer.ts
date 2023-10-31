@@ -113,6 +113,28 @@ export class BasicWheelRenderer implements WheelRenderer {
             ctx.closePath();
         }
 
+        const drawTheLabel = () => {
+            if (section.label) {
+                const midAngle = degToRad((section.startDegree + section.endDegree) / 2);
+    
+                ctx.save();
+                ctx.translate(this.radius,this.radius);
+                ctx.rotate(midAngle);
+    
+                ctx.fillStyle = "white";
+                ctx.font = "16px Arial";
+                ctx.strokeStyle = "black";
+    
+                ctx.strokeText(section.label,this.radius * 0.35, 6.5,this.radius * 0.7);
+                ctx.strokeText(section.label,this.radius * 0.35, 8.5,this.radius * 0.7);
+                ctx.strokeText(section.label,this.radius * 0.35 - 1, 7.5,this.radius * 0.7);
+                ctx.strokeText(section.label,this.radius * 0.35 + 1.5, 7.5,this.radius * 0.7);
+                ctx.fillText(section.label,this.radius * 0.35, 7.5,this.radius * 0.7);
+    
+                ctx.restore();
+            }
+        }
+
         if (section.imageURL) {
 
             const drawTheImage = () => {
@@ -156,7 +178,10 @@ export class BasicWheelRenderer implements WheelRenderer {
                 section.cachedImage = new Image();
                 section.cachedImage.src = section.imageURL;
             
-                section.cachedImage.onload = drawTheImage;
+                section.cachedImage.onload = () => {
+                    drawTheImage();
+                    drawTheLabel();
+                };
             } else {
                 drawTheImage();
             }
@@ -176,25 +201,7 @@ export class BasicWheelRenderer implements WheelRenderer {
 
 
         //draw the label, if it exists
-        if (section.label) {
-            const midAngle = degToRad((section.startDegree + section.endDegree) / 2);
-
-            ctx.save();
-            ctx.translate(this.radius,this.radius);
-            ctx.rotate(midAngle);
-
-            ctx.fillStyle = "white";
-            ctx.font = "16px Arial";
-            ctx.strokeStyle = "black";
-
-            ctx.strokeText(section.label,this.radius * 0.35, 6.5,this.radius * 0.7);
-            ctx.strokeText(section.label,this.radius * 0.35, 8.5,this.radius * 0.7);
-            ctx.strokeText(section.label,this.radius * 0.35 - 1, 7.5,this.radius * 0.7);
-            ctx.strokeText(section.label,this.radius * 0.35 + 1.5, 7.5,this.radius * 0.7);
-            ctx.fillText(section.label,this.radius * 0.35, 7.5,this.radius * 0.7);
-
-            ctx.restore();
-        }
+        drawTheLabel();
     }
     #DrawSectionOutline() {
 
