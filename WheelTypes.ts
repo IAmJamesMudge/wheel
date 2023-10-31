@@ -42,6 +42,8 @@ export interface Section {
     imageURL?: string;
     cachedImage? : HTMLImageElement;
 
+    weight: "auto"|number;
+
     isMarked: boolean;
     isHovered: boolean;
     isActive: boolean;

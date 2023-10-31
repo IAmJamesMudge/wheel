@@ -9,27 +9,27 @@ const wheel = {
     sections: [
         { id: '1', startDegree: 0, endDegree: 60, label: 'Prize 1', color: 'red', 
         imageURL: "https://picsum.photos/seed/test24/200", 
-        isMarked: false, isHovered: false, isActive: false },
+        isMarked: false, isHovered: false, isActive: false, weight: 1 },
         { id: '2', startDegree: 60, endDegree: 120, label: 'Prize 2', color: 'blue', 
         imageURL: "https://picsum.photos/seed/test24/200", 
-        isMarked: false, isHovered: false, isActive: false },
+        isMarked: false, isHovered: false, isActive: false, weight: 1 },
         { id: '3', startDegree: 120, endDegree: 180, label: 'Prize 3', color: 'yellow', 
         imageURL: "https://picsum.photos/seed/test24/200", 
-        isMarked: false, isHovered: false, isActive: false },
+        isMarked: false, isHovered: false, isActive: false, weight: 1 },
         { id: '4', startDegree: 180, endDegree: 240, label: 'Prize 4', color: 'green', 
         imageURL: "https://picsum.photos/seed/test24/200", 
-        isMarked: false, isHovered: false, isActive: false },
+        isMarked: false, isHovered: false, isActive: false, weight: 1 },
         { id: '5', startDegree: 240, endDegree: 300, label: 'Prize 5', color: 'purple', 
         imageURL: "https://picsum.photos/seed/test24/200", 
-        isMarked: false, isHovered: false, isActive: false },
+        isMarked: false, isHovered: false, isActive: false, weight: 1 },
         { id: '6', startDegree: 300, endDegree: 360, label: 'Prize 6', color: 'orange', 
         imageURL: "https://picsum.photos/seed/test24/200", 
-        isMarked: false, isHovered: false, isActive: false },
+        isMarked: false, isHovered: false, isActive: false, weight: 1 },
     ],
     markers: [
         { id: 'marker1', positionInDegrees: -30, color: 'red' }
     ]
-};
+} as Wheel;
 const renderer = new BasicWheelRenderer(wheel, {
     lineThickness: 2,
     canvasDiameter: 350,
@@ -67,7 +67,7 @@ if (false ) { //hasSpun) {
     let section = JSON.parse(hasSpun!) as Section;
     const center = ((section.startDegree + section.endDegree) / 2) % 360;
 
-    controller.jumpTo(center - wheel.markers[0].positionInDegrees);
+    controller.jumpTo(center - (wheel.markers?.[0].positionInDegrees || 0));
 
     
     alert("You got: " + section.label);
@@ -86,7 +86,7 @@ if (false ) { //hasSpun) {
                 const stoppingPosition = getRandomWheelPosition(wheel.sections, [0,0,0,0,0,1]);
     
                 controller.stopSpinning({
-                    degreesToStopAt: stoppingPosition - wheel.markers[0].positionInDegrees,
+                    degreesToStopAt: stoppingPosition - (wheel.markers?.[0].positionInDegrees || 0),
                     onSpinFinished(sections) {
                         alert("You got: " + sections[0].label);
                         localStorage.setItem("hasSpun", JSON.stringify(sections[0]));

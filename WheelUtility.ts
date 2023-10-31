@@ -97,13 +97,17 @@ export function getWeightedRandom<T>(options: T[], weights: number[]): T {
     if (weights === undefined) {
       // Calculate the arc lengths assuming a unit circle and normalize degrees to [0, 360)
       weights = sections.map(s => {
-        let normalizedStart = s.startDegree % 360;
-        let normalizedEnd = s.endDegree % 360;
-        if (normalizedStart < 0) normalizedStart += 360;
-        if (normalizedEnd < 0) normalizedEnd += 360;
-        if (normalizedEnd < normalizedStart) normalizedEnd += 360;
-        const arcLength = (normalizedEnd - normalizedStart) * (Math.PI / 180);
-        return arcLength;
+        if (s.weight === "auto") {
+          let normalizedStart = s.startDegree % 360;
+          let normalizedEnd = s.endDegree % 360;
+          if (normalizedStart < 0) normalizedStart += 360;
+          if (normalizedEnd < 0) normalizedEnd += 360;
+          if (normalizedEnd < normalizedStart) normalizedEnd += 360;
+          const arcLength = (normalizedEnd - normalizedStart) * (Math.PI / 180);
+          return arcLength;
+        } else {
+          return s.weight;
+        }
       });
     }
   
