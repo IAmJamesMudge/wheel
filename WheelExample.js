@@ -5,7 +5,7 @@ const wheel = {
     currentRotation: 0,
     sections: [
         { id: '1', startDegree: 0, endDegree: 60, label: 'Prize 1', color: 'red',
-            //imageURL: "https://picsum.photos/seed/test24/200", 
+            imageURL: "https://picsum.photos/seed/test24/200",
             isMarked: false, isHovered: false, isActive: false, weight: 1 },
         { id: '2', startDegree: 60, endDegree: 120, label: 'Prize 2', color: 'blue',
             //imageURL: "https://picsum.photos/seed/test24/200", 

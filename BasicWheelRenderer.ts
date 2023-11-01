@@ -184,6 +184,7 @@ export class BasicWheelRenderer implements WheelRenderer {
                 };
             } else {
                 drawTheImage();
+                drawTheLabel();
             }
         } else {
             ctx.save();
