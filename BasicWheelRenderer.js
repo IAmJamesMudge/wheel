@@ -123,12 +123,13 @@ export class BasicWheelRenderer {
                 ctx.stroke();
                 ctx.restore();
             };
-            if (section.cachedImage && section.cachedImage.src !== section.imageURL) {
+            if (section.cachedImage && section.cachedImage.dataset.originalSrc !== section.imageURL) {
                 section.cachedImage = null;
             }
             if (!section.cachedImage) {
                 section.cachedImage = new Image();
                 section.cachedImage.src = section.imageURL;
+                section.cachedImage.dataset.originalSrc = section.imageURL;
                 section.cachedImage.onload = () => {
                     drawTheImage();
                     drawTheLabel();
