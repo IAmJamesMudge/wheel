@@ -1,5 +1,5 @@
 import { WheelRenderer, Wheel, Section } from "./WheelTypes.js";
-import { degToRad, getBoundingRectangle, getPositionFromDegrees } from "./WheelUtility.js";
+import { degToRad, getBoundingRectangle } from "./WheelUtility.js";
 
 export type RendererOptions = {
     lineThickness: number;
@@ -86,7 +86,9 @@ export class BasicWheelRenderer implements WheelRenderer {
     
 
     dismount(container: HTMLDivElement): void {
-        container.innerHTML = '';
+        if (container) {
+            container.innerHTML = '';
+        }
 
         window.cancelAnimationFrame(this.#animationId);
     }
@@ -204,9 +206,6 @@ export class BasicWheelRenderer implements WheelRenderer {
 
         //draw the label, if it exists
         drawTheLabel();
-    }
-    #DrawSectionOutline() {
-
     }
 
     #animationId = 0;

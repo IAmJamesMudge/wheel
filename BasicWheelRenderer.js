@@ -66,7 +66,9 @@ export class BasicWheelRenderer {
         this.#RotationListener();
     }
     dismount(container) {
-        container.innerHTML = '';
+        if (container) {
+            container.innerHTML = '';
+        }
         window.cancelAnimationFrame(this.#animationId);
     }
     #DrawSection(section) {
@@ -153,8 +155,6 @@ export class BasicWheelRenderer {
         }
         //draw the label, if it exists
         drawTheLabel();
-    }
-    #DrawSectionOutline() {
     }
     #animationId = 0;
     #RotationListener() {

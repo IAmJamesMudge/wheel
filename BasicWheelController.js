@@ -102,7 +102,7 @@ export class BasicWheelController {
         degrees = degrees % 360.01;
         return degrees;
     }
-    handleSectionEvent(callback) {
+    handleSectionEvent( /*callback: (e: WheelSectionEvent) => void*/) {
         // Handle the section events, probably involves checking currentRotation against marker positions
         // and invoking the callback when sections enter or exit a marker
     }

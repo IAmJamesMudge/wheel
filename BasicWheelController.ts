@@ -132,7 +132,7 @@ export class BasicWheelController implements WheelController {
         return degrees;
     }
 
-    handleSectionEvent(callback: (e: WheelSectionEvent) => void): void {
+    handleSectionEvent(/*callback: (e: WheelSectionEvent) => void*/): void {
         // Handle the section events, probably involves checking currentRotation against marker positions
         // and invoking the callback when sections enter or exit a marker
     }
